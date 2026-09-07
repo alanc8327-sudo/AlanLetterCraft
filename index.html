@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AlanLetterCraft - Loja Virtual</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <img src="Image 1.png" alt="AlanLetterCraft">
+  </header>
+
+  <!-- Botão carrinho -->
+  <!-- Botão carrinho com contador -->
+<button id="toggle-carrinho">
+  🛒 <span id="carrinho-count">0</span>
+</button>
+
+<!-- Sidebar carrinho -->
+<div class="sidebar" id="carrinho">
+  <button class="close-btn" onclick="fecharCarrinho()">&times;</button>
+  <h2>Carrinho</h2>
+  <ul id="carrinho-lista"></ul>
+  <p id="carrinho-total">Total: R$ 0,00</p>
+  <button class="btn-whatsapp" onclick="finalizarCompra()">Finalizar Pedido</button>
+</div>
+
+
+  <!-- Produtos -->
+  <section> 
+    <h2>Superfícies Para Lettering</h2>
+  </section>
+  <main class="content">
+    <div class="card">
+      <h3>Folha A4</h3>
+      <p class="price">R$ 15,00</p>
+      <button onclick="adicionarProduto('Folha A4', 'R$ 15,00')">+</button>
+    </div>
+    <div class="card">
+      <h3>Folhas A3 Ou Cartolinas</h3>
+      <p class="price">R$ 30,00</p>
+      <button onclick="adicionarProduto('Folhas A3 Ou Cartolinas', 'R$ 30,00')">+</button>
+    </div>
+    <div class="card">
+      <h3>Madeira ou Vidro</h3>
+      <p class="price">R$ 50,00</p>
+      <button onclick="adicionarProduto('Madeira ou Vidro', 'R$ 50,00')">+</button>
+    </div>
+    <div class="card">
+      <h3>Folha E.V.A</h3>
+      <p class="price">R$ 65,00</p>
+      <button onclick="adicionarProduto('Folha E.V.A', 'R$ 65,00')">+</button>
+    </div>
+    <div class="card">
+      <h3>Parede</h3>
+      <p class="price">R$ 100,00</p>
+      <button onclick="adicionarProduto('Parede', 'R$ 100,00')">+</button>
+    </div>
+  </main>
+
+  <!-- Galeria de Letterings -->
+  <section>
+    <div class="lettering-images">
+      <h2>Letterings</h2>
+      <img src="lettering craft.jpg" alt="Lettering 1" onclick="openModal(0)">
+      <img src="lettering 2.jpeg" alt="Lettering 2" onclick="openModal(1)">
+      <img src="lettering 3.jpeg" alt="Lettering 3" onclick="openModal(2)">
+      <img src="Lettering 4.webp" alt="Lettering 4" onclick="openModal(3)">
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div id="imageModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img id="modalImg" src="" alt="Imagem ampliada">
+    <button class="prev" onclick="changeImage(-1)">&#10094;</button>
+    <button class="next" onclick="changeImage(1)">&#10095;</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

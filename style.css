@@ -1,0 +1,331 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+body {
+  margin: 0;
+   font-family: "Lobster", sans-serif;
+   font-size: 25px;
+   font-weight: 800;
+   background: linear-gradient(90deg, #1e3c72, #6990d2);
+
+}
+
+/* Header fixo */
+header {
+  background: #1e3c72;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  top: 0;
+  width: 100%;
+  height: 290px;
+
+}
+
+header img {
+    height: 300px;
+   
+}
+
+/* Botão carrinho */
+/* que o botao fique atras somente quando o Modal estiver Aberto*/
+/* Botão carrinho */
+#toggle-carrinho {
+  position: fixed;
+  top: 7px;
+  right: 10px;
+  background: #315597;
+  color: white;
+  border: none;
+  font-size: 25px;
+  padding: 10px 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1; /* visível normalmente */
+}
+#toggle-carrinho:hover {
+  background: #1e3c72;
+}
+
+#toggle-carrinho span {
+  font-size: 18px;
+  margin-left: 5px;
+}
+
+/* Sidebar carrinho */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -350px;
+  width: 300px;
+  height: 100%;
+  background: linear-gradient(180deg, #1e3c72, #2a5298);
+  color: white;
+  padding: 20px;
+  transition: right 0.5s ease;
+  overflow-y: auto;
+  z-index: 999;
+}
+.sidebar.open { right: 0; }
+
+.close-btn {
+  position: absolute;
+  top: 8px;
+  left: 15px;
+  font-size: 30px;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  z-index: 10000;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000; /* acima do carrinho */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+}
+.modal.active { display: flex; }
+
+.modal img {
+  max-width: 90vw;
+  max-height: 80vh;
+  border-radius: 10px;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Botão carrinho atrás quando modal ativo */
+.modal.active ~ #toggle-carrinho {
+  z-index: 0;
+}
+
+
+.sidebar h2 {
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  font-size: 20px;
+}
+
+.sidebar li {
+  background: rgba(255,255,255,0.1);
+  margin: 5px 0;
+  padding: 8px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.quantidade-controle {
+  display: inline-flex;
+  gap: 5px;
+}
+
+.quantidade-controle button {
+  background: #FFD700;
+  color: #000;
+  border: none;
+  padding: 5px 10px;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.quantidade-controle button:hover {
+  background: #FFA500;
+}
+
+/* Total */
+#carrinho-total {
+  margin-top: 15px;
+  Margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #FFD700;
+  text-align: center;
+}
+
+
+
+/* Conteúdo centralizado */
+.content {
+  margin-top: 120px; /* espaço para header */
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: linear-gradient(90deg, #1e3c72, #2a5298),#4b958d;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  padding: 15px;
+  color: white;
+  text-align: center;
+  transition: transform 0.3s;
+  width: 250px;
+  margin-bottom: 25px;
+  margin-top: 1px;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+
+.card img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+section h2 {
+  text-align: center;
+  margin: 20px 0 20px 0;
+  font-size: 40px;
+  color: #ffff;
+}
+
+.card button {
+  margin-top: 10px;
+  font-size: 25px;
+  background: #2a5298;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.price {
+  color: #FFD700;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+button {
+  font-family: "Lobster", sans-serif;
+  font-size: 19px;
+  background: #2a5298;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #1e3c72;
+}
+
+.lettering-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  text-align: center;
+  padding: 10px;
+}
+
+.lettering-images img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.lettering-images img:hover {
+  transform: scale(1.05);
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal img {
+  max-width: 90vw;
+  max-height: 80vh;
+  border-radius: 10px;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+}
+
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 50px;
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.prev { left: 20px; }
+.next { right: 20px; }
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .lettering-images {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .lettering-images {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Botão de fechar */
+
+
+/* Quando o modal estiver ativo, mostra o botão */
+.modal.active .close {
+  display: block;
+}
