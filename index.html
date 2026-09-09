@@ -16,20 +16,28 @@
   </header>
 
   <!-- Botão carrinho -->
-  <!-- Botão carrinho com contador -->
-<button id="toggle-carrinho">
-  🛒 <span id="carrinho-count">0</span>
-</button>
+  <button id="toggle-carrinho">
+    🛒 <span id="carrinho-count">0</span>
+  </button>
 
-<!-- Sidebar carrinho -->
-<div class="sidebar" id="carrinho">
-  <button class="close-btn" onclick="fecharCarrinho()">&times;</button>
-  <h2>Carrinho</h2>
-  <ul id="carrinho-lista"></ul>
-  <p id="carrinho-total">Total: R$ 0,00</p>
-  <button class="btn-whatsapp" onclick="finalizarCompra()">Finalizar Pedido</button>
-</div>
+  <!-- Sidebar carrinho -->
+  <div class="sidebar" id="carrinho">
+    <button class="close-btn" onclick="fecharCarrinho()">&times;</button>
+    <h2>Carrinho</h2>
+    <ul id="carrinho-lista"></ul>
+    <p id="carrinho-total">Total: R$ 0,00</p>
+   
+    <!-- Forma de pagamento -->
+    <label for="forma-pagamento">Forma de pagamento:</label>
+    <select id="forma-pagamento">
+      <option value="credito">💳 Crédito</option>
+      <option value="debito">💳 Débito</option>
+      <option value="pix">⚡ Pix</option>
+      <option value="dinheiro">💵 Dinheiro</option>
+    </select>
 
+    <button class="btn-whatsapp" onclick="finalizarCompra()">Finalizar Pedido</button>
+  </div>
 
   <!-- Produtos -->
   <section> 
@@ -46,6 +54,20 @@
       <p class="price">R$ 30,00</p>
       <button onclick="adicionarProduto('Folhas A3 Ou Cartolinas', 'R$ 30,00')">+</button>
     </div>
+
+    <div class="card">
+      <h3>Telas De Pintura</h3>
+      <label for="Telas-Pintura">
+        <select id="Telas-Pintura" name="TelasDePintura">
+          <option value="20x30" data-preco="30.00">20x30 cm - R$ 30,00</option>
+          <option value="30x40" data-preco="50.00">30x40 cm - R$ 50,00</option>
+          <option value="60x80" data-preco="80.00">60x80 cm - R$ 80,00</option>
+        </select>
+      </label>
+      <p id="precoTela" class="price">Selecione um tamanho</p>
+      <button onclick="adicionarTela()">+</button>
+    </div>
+        
     <div class="card">
       <h3>Madeira ou Vidro</h3>
       <p class="price">R$ 50,00</p>
