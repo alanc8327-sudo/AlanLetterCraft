@@ -57,6 +57,18 @@ header img {
   margin-left: 5px;
 }
 
+#Telas-Pintura {
+  width: 100%;
+  background-color:  #1e3c72;
+  color: #fff;
+  Font-size: 18px;
+  font-family: "Lobster", sans-serif;
+  padding: 8px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+}
+
 /* Sidebar carrinho */
 .sidebar {
   position: fixed;
@@ -83,6 +95,18 @@ header img {
   color: #fff;
   cursor: pointer;
   z-index: 10000;
+}
+
+#forma-pagamento {
+  width: 100%;
+  background-color:  #1e3c72;
+  color: #fff;
+  Font-size: 18px;
+  font-family: "Lobster", sans-serif;
+  padding: 8px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
 }
 
 /* Modal */
@@ -183,8 +207,9 @@ header img {
   flex-wrap: wrap;
 }
 
+
 .card {
-  background: linear-gradient(90deg, #1e3c72, #2a5298),#4b958d;
+  background: linear-gradient(90deg, #1e3c72, #2a5298, #6990d2);
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   padding: 15px;
@@ -193,8 +218,8 @@ header img {
   transition: transform 0.3s;
   width: 250px;
   margin-bottom: 25px;
-  margin-top: 1px;
 }
+
 
 .card:hover {
   transform: scale(1.05);
