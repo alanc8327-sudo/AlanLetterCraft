@@ -12,7 +12,7 @@ function fecharCarrinho() {
   carrinhoSidebar.classList.remove("open");
 }
 
-// Adicionar produto
+// Adicionar produto genérico
 function adicionarProduto(nome, preco) {
   const itemExistente = carrinho.find(item => item.nome === nome);
   if (itemExistente) {
@@ -23,7 +23,17 @@ function adicionarProduto(nome, preco) {
   atualizarCarrinho();
 }
 
-// Alterar quantidade (+ ou -)
+// Adicionar tela de pintura
+function adicionarTela() {
+  const select = document.getElementById("Telas-Pintura");
+  const tamanho = select.options[select.selectedIndex].text;
+  const preco = "R$ " + select.options[select.selectedIndex].dataset.preco;
+
+  document.getElementById("precoTela").innerText = `Preço: ${preco}`;
+  adicionarProduto(`Tela ${tamanho}`, preco);
+}
+
+// Alterar quantidade
 function alterarQuantidade(index, valor) {
   carrinho[index].quantidade += valor;
   if (carrinho[index].quantidade <= 0) {
@@ -57,11 +67,11 @@ function atualizarCarrinho() {
     lista.appendChild(li);
   });
 
-  // Atualiza contador e total
   count.textContent = totalItens;
   totalElement.textContent = `Total: R$ ${totalValor.toFixed(2).replace(".", ",")}`;
 }
 
+// Galeria de imagens
 const images = [
   "lettering craft.jpg",
   "lettering 2.jpeg",
@@ -70,27 +80,20 @@ const images = [
 ];
 let currentIndex = 0;
 
-// Abrir modal
 function openModal(index) {
   currentIndex = index;
   document.getElementById("modalImg").src = images[currentIndex];
   const modal = document.getElementById("imageModal");
   modal.classList.add("active");
-
-  // Esconde botão carrinho atrás do modal
   document.getElementById("toggle-carrinho").style.zIndex = "0";
 }
 
-// Fechar modal
 function closeModal() {
   const modal = document.getElementById("imageModal");
   modal.classList.remove("active");
-
-  // Restaura botão carrinho
   document.getElementById("toggle-carrinho").style.zIndex = "1000";
 }
 
-// Navegar imagens
 function changeImage(direction) {
   currentIndex += direction;
   if (currentIndex < 0) currentIndex = images.length - 1;
@@ -98,13 +101,11 @@ function changeImage(direction) {
   document.getElementById("modalImg").src = images[currentIndex];
 }
 
-// Fechar modal clicando fora da imagem
 document.getElementById("imageModal").addEventListener("click", (e) => {
   if (e.target.id === "imageModal") {
     closeModal();
   }
 });
-
 
 // Finalizar compra via WhatsApp
 function finalizarCompra() {
@@ -112,8 +113,9 @@ function finalizarCompra() {
     alert("Seu carrinho está vazio!");
     return;
   }
-  const numero = "5599999999999"; // seu número
+  const numero = "5519996992683"; // seu número WhatsApp
+  const pagamento = document.getElementById("forma-pagamento").value;
   const mensagem = carrinho.map(item => `${item.nome} - ${item.preco} x${item.quantidade}`).join("\n");
-  const url = `https://wa.me/${numero}?text=${encodeURIComponent("Olá, gostaria de comprar:\n" + mensagem)}`;
+  const url = `https://wa.me/${numero}?text=${encodeURIComponent("Olá, gostaria de comprar:\n" + mensagem + "\nPagamento: " + pagamento)}`;
   window.open(url, "_blank");
 }
